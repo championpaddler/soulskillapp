@@ -8,6 +8,7 @@ import {  FileUploader } from 'ng2-file-upload/ng2-file-upload';
 export class BusinessService {
 
   uri = 'http://localhost:4000/business';
+  
   public uploader:FileUploader = new FileUploader({url:this.uri+'/upload', itemAlias: 'photo'});
 
   constructor(private http: HttpClient,) { }
