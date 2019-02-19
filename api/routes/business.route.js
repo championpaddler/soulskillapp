@@ -1,11 +1,30 @@
 const express = require('express');
 const app = express();
 const businessRoutes = express.Router();
+var multer = require('multer');
+var DIR = 'public/uploads';
+
+var upload = multer({dest: DIR}).single('photo');
 
 // Require Business model in our routes module
 let Business = require('../models/Business');
 
 // Defined store route
+businessRoutes.post('/upload', function (req, res, next) {
+  var path = '';
+  upload(req, res, function (err) {
+     if (err) {
+       // An error occurred when uploading
+       console.log(err);
+       return res.status(422).send("an Error occured")
+     }  
+    // No error occured.
+     path = req.file.path;
+     return res.send("Upload Completed for "+path); 
+});     
+})
+
+
 businessRoutes.route('/add').post(function (req, res) {
   let business = new Business(req.body);
   business.save()

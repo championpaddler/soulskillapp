@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FileSelectDirective } from 'ng2-file-upload';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -18,7 +19,8 @@ import { BusinessService } from './business.service';
     AppComponent,
     GstAddComponent,
     GstGetComponent,
-    GstEditComponent
+    GstEditComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,

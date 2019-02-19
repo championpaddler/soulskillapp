@@ -17,6 +17,7 @@ export class GstGetComponent implements OnInit {
     this.bs
       .getBusinesses()
       .subscribe((data: Business[]) => {
+        console.log(data);
         this.businesses = data;
     });
   }
@@ -24,6 +25,12 @@ export class GstGetComponent implements OnInit {
   deleteBusiness(id) {
     this.bs.deleteBusiness(id).subscribe(res => {
       console.log('Deleted');
+      this.bs
+      .getBusinesses()
+      .subscribe((data: Business[]) => {
+        console.log(data);
+        this.businesses = data;
+    });
     });
   }
 

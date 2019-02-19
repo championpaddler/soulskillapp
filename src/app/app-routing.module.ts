@@ -6,15 +6,15 @@ import { GstGetComponent } from './gst-get/gst-get.component';
 
 const routes: Routes = [
   {
-    path: 'business/create',
+    path: 'users/create',
     component: GstAddComponent
   },
   {
-    path: 'business/edit/:id',
+    path: 'users/edit/:id',
     component: GstEditComponent
   },
   {
-    path: 'business',
+    path: 'users',
     component: GstGetComponent
   }
 ];

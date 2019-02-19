@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {  FileUploader } from 'ng2-file-upload/ng2-file-upload';
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +8,12 @@ import { HttpClient } from '@angular/common/http';
 export class BusinessService {
 
   uri = 'http://localhost:4000/business';
+  public uploader:FileUploader = new FileUploader({url:this.uri+'/upload', itemAlias: 'photo'});
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,) { }
 
+
+  
   addBusiness(Name, Phone, Email, Job) {
     const obj = {
       Name: Name,
@@ -17,8 +21,7 @@ export class BusinessService {
       Email: Email,
       Job: Job
     };
-    this.http.post(`${this.uri}/add`, obj)
-      .subscribe(res => console.log('Done'));
+    return this.http.post(`${this.uri}/add`, obj)
   }
 
   getBusinesses() {
@@ -31,6 +34,10 @@ export class BusinessService {
     return this
       .http
       .get(`${this.uri}/edit/${id}`);
+  }
+  uploadfile()
+  {
+
   }
 
   updateBusiness(Name, Phone, Email, Job,id) {
