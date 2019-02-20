@@ -35,8 +35,7 @@ export class GstAddComponent implements OnInit {
 
 
   adddata() {
-    console.log(this.angForm.value.Resume)
-    // this.uploader.uploadAll();
+    this.uploader.uploadAll();
   }
 
   ngOnInit() {
