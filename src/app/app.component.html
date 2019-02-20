@@ -1,24 +1,35 @@
 <ng2-slim-loading-bar color="blue"></ng2-slim-loading-bar>
 
 <nav class="navbar navbar-expand-md  navbar-dark bg-primary">
-    <a class="navbar-brand" routerLink="users">SoulSkillApp</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        
-        <li class="nav-item">
-          <a class="nav-link" routerLink="users/create" routerLinkActive="active">Add New User</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="users" routerLinkActive="active">Users</a>
-        </li>
-      </ul>
-    
-    </div>
-  </nav>
+  <a class="navbar-brand" routerLink="users">SoulSkillApp</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="users/create" routerLinkActive="active">Add New User</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="users" routerLinkActive="active">Users</a>
+      </li>
+    </ul>
+
+
+  </div>
+
+
+</nav>
 <br />
+<div style="height:50px;">
+  <button style="float:right;margin-right: 30px;" class="btn btn-primary " id="uservisits">
+  </button>
+</div>
+<br />
+
+
 <div class="container">
   <router-outlet></router-outlet>
 </div>

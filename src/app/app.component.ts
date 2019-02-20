@@ -6,6 +6,8 @@ import { NavigationCancel,
         NavigationError,
         NavigationStart,
         Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,9 @@ import { NavigationCancel,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private _loadingBar: SlimLoadingBarService, private _router: Router) {
+  constructor(private _loadingBar: SlimLoadingBarService, private _router: Router,private http:HttpClient) {
+
+this.http.get('http://ip-api.com/json').subscribe(res=>{console.log(res)})
     this._router.events.subscribe((event: Event) => {
       this.navigationInterceptor(event);
     });
