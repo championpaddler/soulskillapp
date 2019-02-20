@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require('../../node_modules/express');
 const businessRoutes = express.Router();
-var multer = require('multer');
+var multer = require('../../node_modules/multer');
 
 var storage = multer.diskStorage({
 	destination: function(req, file, callback) {

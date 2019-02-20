@@ -1,8 +1,8 @@
-const express = require('express'),
-  path = require('path'),
-  bodyParser = require('body-parser'),
-  cors = require('cors'),
-  mongoose = require('mongoose'),
+const express = require('../node_modules/express'),
+  path = require('../node_modules/path'),
+  bodyParser = require('../node_modules/body-parser'),
+  cors = require('../node_modules/cors'),
+  mongoose = require('../node_modules/mongoose'),
   config = require('./DB');
 
 const businessRoute = require('./routes/business.route');
