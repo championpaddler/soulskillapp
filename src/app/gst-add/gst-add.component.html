@@ -12,11 +12,11 @@
       </div>
       <div class="form-group">
         <label class="col-md-4">Phone</label>
-        <input type="text" class="form-control" formControlName="Phone" #Phone />
+        <input type="number"  class="form-control" formControlName="Phone" #Phone />
       </div>
       <div *ngIf="angForm.controls['Phone'].invalid && (angForm.controls['Phone'].dirty || angForm.controls['Phone'].touched)" class="alert alert-danger">
-        <div *ngIf="angForm.controls['Phone'].errors.required">
-          Phone
+        <div *ngIf="angForm.controls['Phone'].errors">
+          Phone Number is invalid
         </div>
      
       </div>
@@ -27,6 +27,9 @@
       <div *ngIf="angForm.controls['Email'].invalid && (angForm.controls['Email'].dirty || angForm.controls['Email'].touched)" class="alert alert-danger">
         <div *ngIf="angForm.controls['Email'].errors.required">
           Email is required.
+        </div>
+        <div *ngIf="angForm.controls['Email'].errors">
+          Email Format is not correct
         </div>
       </div>
       <div class="form-group">
@@ -41,21 +44,15 @@
 
       <div class="form-group">
         <label class="col-md-4">Resume</label>
-        <input type="file" name="photo" ng2FileSelect [uploader]="uploader"  class="form-control" formControlName="Resume" #Resume />
+        <input type="file" accept=".xlsx,.xls,.png,.jpg,.jpeg,.doc, .docx,.ppt, .pptx,.txt,.pdf" name="photo" ng2FileSelect [uploader]="uploader"  class="form-control" formControlName="Resume" #Resume />
       </div>
       <div *ngIf="angForm.controls['Resume'].invalid && (angForm.controls['Resume'].dirty || angForm.controls['Resume'].touched)" class="alert alert-danger">
         <div *ngIf="angForm.controls['Resume'].errors.required">
           Resume is required.
         </div>
       </div>
-
-
-
-
-
-
       <div class="form-group">
-        <button (click)="uploader.uploadAll();"
+        <button (click)="adddata()"
         [disabled]="angForm.pristine || angForm.invalid" 
         class="btn btn-primary">Add Business</button>
       </div>

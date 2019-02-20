@@ -22,7 +22,10 @@ export class GstAddComponent implements OnInit {
     this.angForm = this.fb.group({
       Name: ['', Validators.required],
       Phone: ['', Validators.required],
-      Email: ['', Validators.required],
+      Email: ['', Validators.compose([
+        Validators.required,
+        Validators.email
+      ])],
       Job: ['', Validators.required],
       Resume: ['', Validators.required]
 
@@ -30,6 +33,11 @@ export class GstAddComponent implements OnInit {
   }
 
 
+
+  adddata() {
+    console.log(this.angForm.value.Resume)
+    // this.uploader.uploadAll();
+  }
 
   ngOnInit() {
     this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
