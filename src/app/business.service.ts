@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {  FileUploader } from 'ng2-file-upload/ng2-file-upload';
-
+import { environment } from '../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class BusinessService {
 
-  uri = 'http://localhost:4000/business';
+  uri = environment.baseurl;
   
   public uploader:FileUploader = new FileUploader({url:this.uri+'/upload', itemAlias: 'photo'});
 
@@ -38,10 +38,7 @@ export class BusinessService {
       .http
       .get(`${this.uri}/edit/${id}`);
   }
-  uploadfile()
-  {
 
-  }
 
   updateBusiness(Name, Phone, Email, Job,Resume,id) {
 
