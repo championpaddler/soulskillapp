@@ -6,7 +6,7 @@
             <td>Phone</td>
             <td>Email</td>
             <td>Job</td>
-            <td>Resume</td>
+            <td colspan="1">Resume</td>
             <td colspan="2">Actions</td>
         </tr>
         </thead>
@@ -17,7 +17,7 @@
                 <td>{{ business.Phone }}</td>
                 <td>{{ business.Email }}</td>
                 <td>{{ business.Job }}</td>
-                <td>{{ business.Resume }}</td>
+                <td colspan="1" ><a style="word-wrap:break-word" routerLink="/static/{{business.Resume}}" target="_blank" >Download</a></td>
       
                 <td><a [routerLink]="['edit', business._id]" class="btn btn-primary">Edit</a>&nbsp;&nbsp;<a (click) = "deleteBusiness(business._id)" class="btn btn-danger">Delete</a></td>
             </tr>

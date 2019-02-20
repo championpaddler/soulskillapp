@@ -15,12 +15,14 @@ export class BusinessService {
 
 
   
-  addBusiness(Name, Phone, Email, Job) {
+  addBusiness(Name, Phone, Email, Job,Resume) {
     const obj = {
       Name: Name,
       Phone: Phone,
       Email: Email,
-      Job: Job
+      Job: Job,
+      Resume:Resume
+
     };
     return this.http.post(`${this.uri}/add`, obj)
   }
@@ -41,13 +43,14 @@ export class BusinessService {
 
   }
 
-  updateBusiness(Name, Phone, Email, Job,id) {
+  updateBusiness(Name, Phone, Email, Job,Resume,id) {
 
     const obj = {
       Name: Name,
       Phone: Phone,
       Email: Email,
-      Job: Job
+      Job: Job,
+      Resume:Resume
     };
     this
       .http

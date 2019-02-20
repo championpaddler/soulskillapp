@@ -1,3 +1,3 @@
 module.exports = {
-    DB: 'mongodb://localhost:27017/ng7crud'
+    DB: 'mongodb://admin:SoulSkill1@ds343895.mlab.com:43895/users'
  };

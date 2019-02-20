@@ -6,6 +6,11 @@ import { GstGetComponent } from './gst-get/gst-get.component';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'users',
+    pathMatch: 'full'
+  },
+  {
     path: 'users/create',
     component: GstAddComponent
   },

@@ -1,14 +1,15 @@
 const express = require('express');
-const app = express();
 const businessRoutes = express.Router();
 var multer = require('multer');
-var DIR = 'public/uploads';
 
-
-var storage = multer.diskStorage({dest: DIR,filename:function(req,file,callback)
-{
-  callback(null,Date.now()+file.originalname)
-}});
+var storage = multer.diskStorage({
+	destination: function(req, file, callback) {
+		callback(null, __dirname+'/../public/uploads')
+	},
+	filename: function(req, file, callback) {
+		callback(null, Date.now() + file.originalname)
+	}
+})
 
 var upload = multer({storage:storage}).single('photo')
 // Require Business model in our routes module
@@ -25,7 +26,7 @@ businessRoutes.post('/upload', function (req, res, next) {
      }  
     // No error occured.
      path = req.file.path;
-     return res.send("Upload Completed for "+req.file.filename); 
+     return res.send(req.file.filename); 
 });     
 })
 
@@ -71,6 +72,7 @@ businessRoutes.route('/update/:id').post(function (req, res) {
         business.Phone = req.body.Phone;
         business.Email = req.body.Email;
         business.Job = req.body.Job;
+        business.Resume = req.body.Resume;
         business.save().then(business => {
           res.json('Update complete');
       })
