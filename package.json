@@ -8,6 +8,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "main": "api/server.js",
   "private": true,
   "dependencies": {
     "@angular/animations": "~7.0.0",
