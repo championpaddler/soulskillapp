@@ -10,27 +10,34 @@ import { BusinessService } from '../business.service';
 export class GstGetComponent implements OnInit {
 
   businesses: Business[];
+  empty: boolean ;
 
   constructor(private bs: BusinessService) { }
 
   ngOnInit() {
-    this.bs
-      .getBusinesses()
-      .subscribe((data: Business[]) => {
-        console.log(data);
-        this.businesses = data;
+    this.bs.getBusinesses().subscribe((data: Business[]) => {
+      this.businesses = data;
+      if (data.length != 0) {
+        this.empty = false;
+      }
+      else {
+        this.empty = true;
+      }
     });
   }
 
   deleteBusiness(id) {
     this.bs.deleteBusiness(id).subscribe(res => {
-      console.log('Deleted');
-      this.bs
-      .getBusinesses()
-      .subscribe((data: Business[]) => {
-        console.log(data);
+      alert('Deleted');
+      this.bs.getBusinesses().subscribe((data: Business[]) => {
         this.businesses = data;
-    });
+        if (data.length != 0) {
+          this.empty = false;
+        }
+        else {
+          this.empty = true;
+        }
+      });
     });
   }
 

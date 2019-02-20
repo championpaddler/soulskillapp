@@ -1,6 +1,7 @@
 <div class="card">
   <div class="card-body">
     <form [formGroup]="angForm" novalidate>
+      <h4 style="text-align:center">Add New User</h4>
       <div class="form-group">
         <label class="col-md-4">Name</label>
         <input type="text" class="form-control"  formControlName="Name" #Name/>
@@ -52,10 +53,14 @@
         </div>
       </div>
       <div class="form-group">
-        <button (click)="adddata()"
+        <button (click)="uploader.uploadAll()"
         [disabled]="angForm.pristine || angForm.invalid" 
-        class="btn btn-primary">Add Business</button>
+        class="btn btn-primary">Add User</button>&nbsp;
+        <button routerLink="/"
+        class="btn btn-primary">Cancel</button>
       </div>
     </form>
   </div>
 </div>
+<div id="snackbar">Added User</div>
+

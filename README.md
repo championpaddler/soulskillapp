@@ -1,17 +1,23 @@
 # SoulSkill App
 
-Assignment App  Deployed Here : http://soulskillapp.herokuapp.com/
+Assignment App
 
-## Development server
+## Running Project
 
-Frontend :
+`npm start`
+
+For Ngrok
+`./ngrok http 4000
+
+## Development Server
+
+###FrontEnd
 `ng serve`
 
-Backend:
+###Backend Server
 `npm start`
 
 ##Production Build
 
 `ng build --prod`
-`npm start`
 

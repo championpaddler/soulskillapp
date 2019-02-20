@@ -1,4 +1,7 @@
-<div>
+<div *ngIf="empty" style="text-align:center">
+    <div>Add New Users</div>
+    <a routerLink="/users/create"><img src="assets/images/add.png"></a></div>
+<div *ngIf="!empty">
     <table class="table table-hover">
         <thead>
         <tr>

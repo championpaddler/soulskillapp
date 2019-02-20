@@ -35,32 +35,32 @@ businessRoutes.route('/add').post(function (req, res) {
   let business = new Business(req.body);
   business.save()
     .then(business => {
-      res.status(200).json({'business': 'business in added successfully'});
+      res.status(200).json({'Status': 'Success Data Saved'});
     })
     .catch(err => {
-    res.status(400).send("unable to save to database");
+    res.status(400).json({'Status': 'Error Processing Data'});
     });
 });
 
-// Defined get data(index or listing) route
 businessRoutes.route('/').get(function (req, res) {
-    Business.find(function (err, businesses){
+    Business.find(function (err, userdata){
     if(err){
       console.log(err);
     }
     else {
-      res.json(businesses);
+      res.json(userdata);
     }
   });
 });
 
-// Defined edit route
+// Getting Single User Data
 businessRoutes.route('/edit/:id').get(function (req, res) {
   let id = req.params.id;
-  Business.findById(id, function (err, business){
-      res.json(business);
+  Business.findById(id, function (err, userdata){
+      res.json(userdata);
   });
 });
+
 
 //  Defined update route
 businessRoutes.route('/update/:id').post(function (req, res) {
@@ -74,10 +74,10 @@ businessRoutes.route('/update/:id').post(function (req, res) {
         business.Job = req.body.Job;
         business.Resume = req.body.Resume;
         business.save().then(business => {
-          res.json('Update complete');
+          res.json('Update Complete');
       })
       .catch(err => {
-            res.status(400).send("unable to update the database");
+            res.status(400).send("Unable to Update the database");
       });
     }
   });
@@ -87,7 +87,7 @@ businessRoutes.route('/update/:id').post(function (req, res) {
 businessRoutes.route('/delete/:id').get(function (req, res) {
     Business.findByIdAndRemove({_id: req.params.id}, function(err, business){
         if(err) res.json(err);
-        else res.json('Successfully removed');
+        else res.json('Successfully removed User');
     });
 });
 
