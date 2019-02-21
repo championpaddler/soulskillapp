@@ -38,10 +38,10 @@
       }
       return "";
     }
-    $.getJSON('http://ip-api.com/json', function (data) {
-      var count = accessCookie(data['query'])
+    $.getJSON('https://ipapi.co/json/', function (data) {
+      var count = accessCookie(data['ip'])
       if (count === "") {
-        document.cookie = data['query'] + "=" + 1;
+        document.cookie = data['ip'] + "=" + 1;
         document.getElementById('uservisits').innerText = "User Visits:"+1;
       }
       else {
@@ -49,7 +49,7 @@
         console.log("increasing count", coun)
         document.getElementById('uservisits').innerText = "User Visits:"+coun;
 
-        document.cookie = data['query'] + "=" + coun;
+        document.cookie = data['ip'] + "=" + coun;
 
       }
     });
